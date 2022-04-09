@@ -176,7 +176,7 @@ const Home = ({ navigation }) => {
                     </View>
                     <Text style={styles.titleButtonStyles}>See All</Text>
                 </View>
-                <View>
+                <View >
                     {
                         products.map(data => (
                             <ProductCard data={data} key={data.id} />
