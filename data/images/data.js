@@ -99,5 +99,35 @@ export const Items = [
             productImage: require('../images/products/1.png'),
             productImage: require('../images/products/1.png'),
         }
+    },
+    {
+        id: 7,
+        category: 'accessory',
+        productName: 'Super cat',
+        productPrice: 129,
+        description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
+        isOff: true,
+        offPrecentage: 10,
+        productImage: require('../images/products/1.png'),
+        productImageList: {
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+        }
+    },
+    {
+        id: 8,
+        category: 'accessory',
+        productName: 'Super cat',
+        productPrice: 6543,
+        description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
+        isOff: true,
+        offPrecentage: 10,
+        productImage: require('../images/products/1.png'),
+        productImageList: {
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+        }
     }
 ]
