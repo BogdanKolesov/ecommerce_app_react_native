@@ -36,13 +36,71 @@ const Home = ({ navigation }) => {
 
     const ProductCard = ({ data }) => {
         return (
-            <TouchableOpacity>
-                <Text>
-                    {data.productName}
+            <TouchableOpacity style={{
+                width: '48%',
+                marginVertical: 14
+            }}>
+                <View style={{
+                    width: '100%',
+                    height: 100,
+                    borderRadius: 10,
+                    backgroundColor: COLORS.backgroundLight,
+                    position: 'relative',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginBottom: 0
+                }}>
+                    {data.isOff ? (
+                        <View style={{
+                            position: 'absolute',
+                            width: '20%',
+                            height: '24%',
+                            backgroundColor: COLORS.green,
+                            top: 0,
+                            left: 0,
+                            borderTopLeftRadius: 10,
+                            borderBottomRightRadius: 10,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <Text style={{
+                                fontSize: 12,
+                                color: COLORS.white,
+                                fontWeight: 'bold',
+                                letterSpacing: 1
+                            }}>{data.offPrecentage}</Text>
+                        </View>
+                    ) : null}
+                    <Image source={data.productImage}
+                        style={{
+                            width: '80%',
+                            height: '80%',
+                            resizeMode: 'contain'
+                        }}
+                    />
+                </View>
+                <Text style={{
+                    fontSize: 12,
+                    color: COLORS.black,
+                    fontWeight: 'bold',
+                    marginBottom: 2
+                }}>
+                    {
+                        data.productName
+                    }
+                </Text>
+                {
+                    data.category == 'acessory' ? null : null
+                }
+                <Text style={{
+                    fontSize: 14
+                }}>
+                    &#8377; {data.productPrice}
                 </Text>
             </TouchableOpacity>
         );
     };
+
 
     return (
         <View style={styles.viewStyles}>
@@ -65,19 +123,37 @@ const Home = ({ navigation }) => {
                         Audio shop on Borovaya street 8. {'\n'}This shop offer both propducts and services
                     </Text>
                 </View>
-                <View style={{ width: '100%', padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <View style={styles.infoTitleStyles}>
-                        <Text style={styles.textTitleStyles}>Products</Text>
-                        <Text style={styles.textSubTitleStiles}>41</Text>
+                <View style={{ padding: 2 }}>
+                    <View style={{ padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <View style={styles.infoTitleStyles}>
+                            <Text style={styles.textTitleStyles}>Products</Text>
+                            <Text style={styles.textSubTitleStiles}>41</Text>
+                        </View>
+                        <Text style={styles.titleButtonStyles}>See All</Text>
                     </View>
-                    <Text style={styles.titleButtonStyles}>See All</Text>
+                    <View style={styles.productsListStyles}>
+                        {
+                            products.map(data => (
+                                <ProductCard data={data} key={data.id} />
+                            ))
+                        }
+                    </View>
                 </View>
-                <View >
-                    {
-                        products.map(data => (
-                            <ProductCard data={data} key={data.id} />
-                        ))
-                    }
+                <View style={{ padding: 2 }}>
+                    <View style={{ padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <View style={styles.infoTitleStyles}>
+                            <Text style={styles.textTitleStyles}>Accessory</Text>
+                            <Text style={styles.textSubTitleStiles}>41</Text>
+                        </View>
+                        <Text style={styles.titleButtonStyles}>See All</Text>
+                    </View>
+                    <View style={styles.productsListStyles}>
+                        {
+                            accessory.map(data => (
+                                <ProductCard data={data} key={data.id} />
+                            ))
+                        }
+                    </View>
                 </View>
             </ScrollView >
         </View >
@@ -114,7 +190,7 @@ const styles = StyleSheet.create({
     headingTextStyles: {
         fontSize: 26,
         color: COLORS.black,
-        fontWeight: '400',
+        fontWeight: 'bold',
         letterSpacing: 1,
         marginBottom: 10
     },
@@ -152,6 +228,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: COLORS.blue,
         fontWeight: '400',
+    },
+    productsListStyles: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
     }
 })
 

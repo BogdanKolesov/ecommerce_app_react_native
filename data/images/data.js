@@ -32,7 +32,7 @@ export const Items = [
         productPrice: 231,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
-        offPrecentage: 10,
+        offPrecentage: 23,
         productImage: require('../images/products/1.png'),
         productImageList: {
             productImage: require('../images/products/1.png'),
@@ -104,7 +104,7 @@ export const Items = [
         id: 7,
         category: 'accessory',
         productName: 'Super cat',
-        productPrice: 129,
+        productPrice: 1314669,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
         offPrecentage: 10,
@@ -129,5 +129,36 @@ export const Items = [
             productImage: require('../images/products/1.png'),
             productImage: require('../images/products/1.png'),
         }
-    }
+    },
+    {
+        id: 9,
+        category: 'accessory',
+        productName: 'Super cat',
+        productPrice: 1314669,
+        description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
+        isOff: true,
+        offPrecentage: 10,
+        productImage: require('../images/products/1.png'),
+        productImageList: {
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+        }
+    },
+    {
+        id: 10,
+        category: 'accessory',
+        productName: 'Super cat',
+        productPrice: 1314669,
+        description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
+        isOff: true,
+        offPrecentage: 10,
+        productImage: require('../images/products/1.png'),
+        productImageList: {
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+            productImage: require('../images/products/1.png'),
+        }
+    },
+
 ]
