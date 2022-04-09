@@ -4,6 +4,9 @@ import { View, StyleSheet, Text, ScrollView, TouchableOpacity, Image } from 'rea
 import { COLORS, Items } from '../../data/images/data';
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+
+
 
 const Home = ({ navigation }) => {
 
@@ -36,10 +39,12 @@ const Home = ({ navigation }) => {
 
     const ProductCard = ({ data }) => {
         return (
-            <TouchableOpacity style={{
-                width: '48%',
-                marginVertical: 14
-            }}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('ProductInfo', { productID: data.id })}
+                style={{
+                    width: '48%',
+                    marginVertical: 14
+                }}>
                 <View style={{
                     width: '100%',
                     height: 100,
@@ -68,7 +73,7 @@ const Home = ({ navigation }) => {
                                 color: COLORS.white,
                                 fontWeight: 'bold',
                                 letterSpacing: 1
-                            }}>{data.offPrecentage}</Text>
+                            }}>{data.offPrecentage}%</Text>
                         </View>
                     ) : null}
                     <Image source={data.productImage}
@@ -90,7 +95,46 @@ const Home = ({ navigation }) => {
                     }
                 </Text>
                 {
-                    data.category == 'acessory' ? null : null
+                    data.category == 'accessory' ?
+                        data.isAvailable ? (
+                            <View style={{
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                                <FontAwesome name='circle'
+                                    style={{
+                                        fontSize: 12,
+                                        marginRight: 6,
+                                        color: COLORS.green
+                                    }}
+                                />
+                                <Text style={{
+                                    fontSize: 12,
+                                    color: COLORS.green
+                                }}>
+                                    Available
+                                </Text>
+                            </View>
+                        ) : (
+                            <View style={{
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                                <FontAwesome name='circle'
+                                    style={{
+                                        fontSize: 12,
+                                        marginRight: 6,
+                                        color: COLORS.red
+                                    }}
+                                />
+                                <Text style={{
+                                    fontSize: 12,
+                                    color: COLORS.red
+                                }}>
+                                    Unavailable
+                                </Text>
+                            </View>
+                        ) : null
                 }
                 <Text style={{
                     fontSize: 14

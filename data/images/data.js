@@ -31,8 +31,6 @@ export const Items = [
         productName: 'Super cat',
         productPrice: 231,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
-        isOff: true,
-        offPrecentage: 23,
         productImage: require('../images/products/1.png'),
         productImageList: {
             productImage: require('../images/products/1.png'),
@@ -91,8 +89,6 @@ export const Items = [
         productName: 'Super cat',
         productPrice: 1314669,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
-        isOff: true,
-        offPrecentage: 10,
         productImage: require('../images/products/1.png'),
         productImageList: {
             productImage: require('../images/products/1.png'),
@@ -108,6 +104,7 @@ export const Items = [
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
         offPrecentage: 10,
+        isAvailable: true,
         productImage: require('../images/products/1.png'),
         productImageList: {
             productImage: require('../images/products/1.png'),
@@ -121,8 +118,6 @@ export const Items = [
         productName: 'Super cat',
         productPrice: 6543,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
-        isOff: true,
-        offPrecentage: 10,
         productImage: require('../images/products/1.png'),
         productImageList: {
             productImage: require('../images/products/1.png'),
@@ -139,6 +134,7 @@ export const Items = [
         isOff: true,
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
+        isAvailable: true,
         productImageList: {
             productImage: require('../images/products/1.png'),
             productImage: require('../images/products/1.png'),
