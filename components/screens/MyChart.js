@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-const ProductInfo = () => {
+const MyChart = () => {
     return (
         <View>
 
@@ -11,4 +11,4 @@ const ProductInfo = () => {
 
 const styles = StyleSheet.create({})
 
-export default ProductInfo;
+export default MyChart;
