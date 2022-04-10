@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, StatusBar, ScrollView, TouchableOpacity, FlatList } from 'react-native';
+import { View, StyleSheet, Text, StatusBar, Dimensions, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
 import { COLORS, Items } from '../../data/images/data';
 import Entypo from 'react-native-vector-icons/Entypo'
 
@@ -22,7 +22,31 @@ const ProductInfo = ({ route, navigation }) => {
         }
     }
 
+    const width = Dimensions.get('window').width
+
     const { productID } = route.params
+
+
+    const renderProduct = ({ item, index }) => {
+        return (
+            <View style={{
+                width: width,
+                height: 240,
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}>
+                <Image source={item}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        resizeMode: 'contain'
+                    }}
+                />
+
+            </View>
+        )
+    }
+
     return (
         <View style={{
             paddingTop: '7%',
@@ -31,6 +55,7 @@ const ProductInfo = ({ route, navigation }) => {
             backgroundColor: COLORS.white,
             position: 'relative'
         }}>
+
             <StatusBar backgroundColor={COLORS.backgroundLight} barStyle='dark-content' />
             <ScrollView>
                 <View style={{
@@ -60,6 +85,12 @@ const ProductInfo = ({ route, navigation }) => {
                             }} />
                         </TouchableOpacity>
                     </View>
+                    <FlatList
+                        data={product.productImageList ? product.productImageList : null}
+                        horizontal
+                        renderItem={renderProduct}
+                        keyExtractor={item => item.index}
+                    />
                 </View>
             </ScrollView>
         </View>

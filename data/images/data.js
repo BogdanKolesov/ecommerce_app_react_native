@@ -19,11 +19,11 @@ export const Items = [
         isOff: true,
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 2,
@@ -32,11 +32,11 @@ export const Items = [
         productPrice: 231,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 3,
@@ -47,11 +47,11 @@ export const Items = [
         isOff: true,
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 4,
@@ -62,11 +62,11 @@ export const Items = [
         isOff: true,
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 5,
@@ -77,11 +77,11 @@ export const Items = [
         isOff: true,
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 6,
@@ -90,11 +90,11 @@ export const Items = [
         productPrice: 1314669,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 7,
@@ -119,11 +119,11 @@ export const Items = [
         productPrice: 6543,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 9,
@@ -135,11 +135,11 @@ export const Items = [
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
         isAvailable: true,
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 10,
@@ -150,11 +150,11 @@ export const Items = [
         isOff: true,
         offPrecentage: 10,
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
 
 ]
