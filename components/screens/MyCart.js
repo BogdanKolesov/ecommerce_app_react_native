@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, TouchableOpacity, Text, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Items } from '../../data/images/data';
+import { COLORS, Items } from '../../data/images/data';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 const MyCart = ({ navigation }) => {
@@ -45,20 +46,92 @@ const MyCart = ({ navigation }) => {
         setTotal(total)
     }
 
+    const renderProducts = (data, index) => {
+        return (
+            <TouchableOpacity key={index} style={{
+                width: '100%',
+                height: 120,
+                marginVertical: 6,
+                flexDirection: 'row',
+                alignItems: 'center'
+            }}>
+                <View style={{
+                    width: '30%',
+                    height: 100,
+                    padding: 14,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: COLORS.backgroundLight,
+                    borderRadius: 10,
+                    marginRight: 22
+                }}>
+                    <Image source={data.productImage}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            resizeMode: 'contain'
+                        }}
+                    />
+                </View>
+            </TouchableOpacity>
+        )
+    }
+
     return (
-        <View>
-            {
-                product ? product.map((data, index) => {
-                    return (
-                        <View style={{ width: '100%' }}>
-                            <Image style={{ width: '20%', height: 200 }} source={data.productImage} />
-                            <Text>
-                                {data.id}.{data.productName}
-                            </Text>
-                        </View>
-                    )
-                }) : null
-            }
+        <View style={{
+            paddingTop: '7%',
+            width: '100%',
+            height: '100%',
+            backgroundColor: COLORS.white
+        }}>
+            <ScrollView>
+                <View style={{
+                    width: '100%',
+                    flexDirection: 'row',
+                    paddingTop: 16,
+                    paddingHorizontal: 16,
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                        <MaterialCommunityIcons name='chevron-left'
+                            style={{
+                                fontSize: 22,
+                                color: COLORS.backgroundDark,
+                                backgroundColor: COLORS.backgroundLight,
+                                borderRadius: 12,
+                                padding: 12
+                            }}
+                        />
+                    </TouchableOpacity>
+                    <Text style={{
+                        fontSize: 18,
+                        color: COLORS.black,
+                        fontWeight: '400',
+
+                    }}>Order Details</Text>
+                    <View>
+
+                    </View>
+                </View>
+                <Text style={{
+                    fontSize: 20,
+                    color: COLORS.black,
+                    fontWeight: 'bold',
+                    letterSpacing: 1,
+                    paddingTop: 20,
+                    paddingLeft: 16,
+                    paddingBottom: 10
+                }}>My Cart</Text>
+                <View style={{
+                    paddingHorizontal: 16,
+
+                }}>
+                    {
+                        product ? product.map(renderProducts) : null
+                    }
+                </View>
+            </ScrollView>
         </View>
     );
 }
