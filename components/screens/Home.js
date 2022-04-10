@@ -155,7 +155,7 @@ const Home = ({ navigation }) => {
                     <TouchableOpacity>
                         <Entypo name='shopping-bag' style={styles.shoppingCardIconStyles} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('MyCart')}>
                         <MaterialCommunityIcons name='cart' style={styles.shoppingCardIconStyles} />
                     </TouchableOpacity>
                 </View>
