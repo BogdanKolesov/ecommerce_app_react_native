@@ -86,7 +86,7 @@ const MyCart = ({ navigation }) => {
 
                     }}>
                         <Text
-                            onPress={() => navigation.navigate('Home')}
+                            onPress={() => navigation.navigate('ProductInfo', { productID: data.id })}
                             style={{
                                 fontSize: 16,
                                 maxWidth: '100%',
