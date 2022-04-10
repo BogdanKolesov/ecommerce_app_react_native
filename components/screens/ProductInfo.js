@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, Animated, StatusBar, Dimensions, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
+import { View, StyleSheet, Text, Animated, StatusBar, Dimensions, ToastAndroid, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
 import { COLORS, Items } from '../../data/images/data';
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -33,7 +33,7 @@ const ProductInfo = ({ route, navigation }) => {
     const { productID } = route.params
 
     const addToCart = async (id) => {
-        let itemArray = AsyncStorage.getItem('cartItems')
+        let itemArray = await AsyncStorage.getItem('cartItems')
         itemArray = JSON.parse(itemArray)
         if (itemArray) {
             let array = itemArray
@@ -42,7 +42,8 @@ const ProductInfo = ({ route, navigation }) => {
             try {
                 await AsyncStorage.setItem('cartItems', JSON.stringify(array))
                 ToastAndroid.show(
-                    'Item added successfully to cart'
+                    'Item added successfully to cart',
+                    ToastAndroid.SHORT
                 )
                 navigation.navigate('Home')
             } catch (error) {
@@ -54,7 +55,9 @@ const ProductInfo = ({ route, navigation }) => {
             try {
                 await AsyncStorage.setItem('cartItems', JSON.stringify(array))
                 ToastAndroid.show(
-                    'Item added successfully to cart'
+                    'Item added successfully to cart',
+                    ToastAndroid.SHORT
+
                 )
                 navigation.navigate('Home')
             } catch (error) {
