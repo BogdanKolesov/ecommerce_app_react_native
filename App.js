@@ -21,7 +21,7 @@ export default function App() {
       >
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='My chart' component={MyChart} />
-        <Stack.Screen name='More' component={ProductInfo} />
+        <Stack.Screen name='ProductInfo' component={ProductInfo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
