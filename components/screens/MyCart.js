@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Items } from '../../data/images/data';
 
-const MyChart = () => {
+const MyCart = () => {
     return (
         <View>
             {
@@ -16,4 +16,4 @@ const MyChart = () => {
 
 const styles = StyleSheet.create({})
 
-export default MyChart;
+export default MyCart;
