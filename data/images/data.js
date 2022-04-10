@@ -18,6 +18,7 @@ export const Items = [
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
         offPrecentage: 10,
+        isAvailable: true,
         productImage: require('../images/products/1.png'),
         productImageList: [
             require('../images/products/1.png'),
@@ -30,6 +31,7 @@ export const Items = [
         category: 'product',
         productName: 'Super cat',
         productPrice: 231,
+        isAvailable: true,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         productImage: require('../images/products/1.png'),
         productImageList: [
@@ -46,6 +48,7 @@ export const Items = [
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
         offPrecentage: 10,
+        isAvailable: true,
         productImage: require('../images/products/1.png'),
         productImageList: [
             require('../images/products/1.png'),
@@ -61,6 +64,7 @@ export const Items = [
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
         offPrecentage: 10,
+        isAvailable: true,
         productImage: require('../images/products/1.png'),
         productImageList: [
             require('../images/products/1.png'),
@@ -76,6 +80,7 @@ export const Items = [
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         isOff: true,
         offPrecentage: 10,
+        isAvailable: true,
         productImage: require('../images/products/1.png'),
         productImageList: [
             require('../images/products/1.png'),
@@ -88,6 +93,7 @@ export const Items = [
         category: 'product',
         productName: 'Super cat',
         productPrice: 1314669,
+        isAvailable: true,
         description: 'Some description some description some descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome descriptionsome description. some descriptionsome description.some description.',
         productImage: require('../images/products/1.png'),
         productImageList: [

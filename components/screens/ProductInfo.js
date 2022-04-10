@@ -250,6 +250,34 @@ const ProductInfo = ({ route, navigation }) => {
                     </View>
                 </View>
             </ScrollView>
+            <View style={{
+                position: 'relative',
+                bottom: 10,
+                height: '8%',
+                width: '100%',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <TouchableOpacity onPress={() => product.isAvailable ? addToCart(roduct.id) : null}
+                    style={{
+                        width: '86%',
+                        height: '90%',
+                        backgroundColor: COLORS.blue,
+                        borderRadius: 20,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                    <Text style={{
+                        fontSize: 12,
+                        fontWeight: '500',
+                        letterSpacing: 1,
+                        color: COLORS.white,
+                        textTransform: 'uppercase'
+                    }}>
+                        {product.isAvailable ? 'Add to cart' : 'Not available'}
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
