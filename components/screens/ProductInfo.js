@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, Animated, StatusBar, Dimensions, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
 import { COLORS, Items } from '../../data/images/data';
 import Entypo from 'react-native-vector-icons/Entypo'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
 
 const ProductInfo = ({ route, navigation }) => {
     const [product, setProduct] = useState({});
@@ -106,7 +108,9 @@ const ProductInfo = ({ route, navigation }) => {
                         width: '100%',
                         flexDirection: 'row',
                         justifyContent: 'center',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        marginBottom: 16,
+                        marginTop: 32
                     }}>
                         {
                             product.productImageList
@@ -131,6 +135,118 @@ const ProductInfo = ({ route, navigation }) => {
                                         </Animated.View>
                                     )
                                 }) : null}
+                    </View>
+                </View>
+                <View style={{
+                    paddingHorizontal: 16,
+                    marginTop: 14
+                }}>
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginVertical: 14
+                    }}>
+                        <Entypo name='shopping-cart' style={{
+                            fontSize: 20,
+                            color: COLORS.blue,
+                            marginRight: 6
+                        }} />
+                        <Text style={{
+                            fontSize: 12,
+                            color: COLORS.black
+                        }}>
+                            Shopping
+                        </Text>
+                    </View>
+                    <View style={{
+                        flexDirection: 'row',
+                        marginVertical: 4,
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                    }}>
+                        <Text style={{
+                            fontSize: 24,
+                            fontWeight: 'bold',
+                            letterSpacing: 0.5,
+                            marginVertical: 4,
+                            color: COLORS.black,
+                            maxWidth: '84%'
+                        }}>
+                            {product.productName}
+                        </Text>
+                        <Ionicons name='link-outline' style={{
+                            fontSize: 24,
+                            color: COLORS.blue,
+                            marginRight: 6,
+                            backgroundColor: COLORS.blue + 10,
+                            borderRadius: 100,
+                        }} />
+                    </View>
+                    <Text style={{
+                        fontSize: 12,
+                        color: COLORS.black,
+                        fontWeight: '400',
+                        letterSpacing: 1,
+                        opacity: 0.5,
+                        lineHeight: 20,
+                        maxWidth: '85%',
+                        // maxHeight: 44,
+                        marginBottom: 18
+                    }}>
+                        {product.description}
+                    </Text>
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        marginVertical: 14,
+                        borderBottomColor: COLORS.backgroundLight,
+                        borderBottomWidth: 1,
+                        paddingBottom: 20
+                    }}>
+                        <View style={{
+                            flexDirection: 'row',
+                            width: '80%',
+                            alignItems: 'center'
+                        }}>
+                            <View style={{
+                                color: COLORS.blue,
+                                backgroundColor: COLORS.backgroundLight,
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                padding: 12,
+                                borderRadius: 100,
+                                marginRight: 10
+                            }}>
+                                <Entypo name='location-pin' style={{
+                                    fontSize: 18,
+                                    color: COLORS.blue
+                                }} />
+                            </View>
+                            <Text style={{
+
+                            }}>
+                                Audio shop on Borovaya street 8. {'\n'}This shop offer both propducts and services
+                            </Text>
+                        </View>
+                        <Entypo name='chevron-right' style={{
+                            fontSize: 22,
+                            color: COLORS.backgroundDark,
+                        }} />
+                    </View>
+                    <View style={{
+                        paddingHorizontal: 16,
+                    }}>
+                        <Text style={{
+                            fontSize: 18,
+                            fontWeight: '500',
+                            maxWidth: '85%',
+                            marginBottom: 4
+                        }}> &#8377; {product.productPrice}</Text>
+                        <Text>
+                            Tax Rate 2%: &#8377; {product.productPrice / 100 * 2}
+                            ( &#8377; {(product.productPrice / 100 * 2) + product.productPrice} )
+                        </Text>
                     </View>
                 </View>
             </ScrollView>
