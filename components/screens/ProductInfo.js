@@ -102,6 +102,36 @@ const ProductInfo = ({ route, navigation }) => {
                         )}
                         keyExtractor={item => item.index}
                     />
+                    <View style={{
+                        width: '100%',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        {
+                            product.productImageList
+                                ? product.productImageList.map((data, index) => {
+                                    let opacity = position.interpolate({
+                                        inputRange: [index - 1, index, index + 1],
+                                        outputRange: [0.2, 1, 0.2],
+                                        extrapolate: 'clamp'
+                                    })
+                                    return (
+                                        <Animated.View
+                                            key={index}
+                                            style={{
+                                                width: '16%',
+                                                height: 2.4,
+                                                backgroundColor: COLORS.black,
+                                                opacity,
+                                                marginHorizontal: 4,
+                                                borderRadius: 100
+                                            }}>
+
+                                        </Animated.View>
+                                    )
+                                }) : null}
+                    </View>
                 </View>
             </ScrollView>
         </View>

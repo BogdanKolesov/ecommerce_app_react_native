@@ -106,11 +106,11 @@ export const Items = [
         offPrecentage: 10,
         isAvailable: true,
         productImage: require('../images/products/1.png'),
-        productImageList: {
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-            productImage: require('../images/products/1.png'),
-        }
+        productImageList: [
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+            require('../images/products/1.png'),
+        ]
     },
     {
         id: 8,
