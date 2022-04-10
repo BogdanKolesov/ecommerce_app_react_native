@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { Items } from '../../data/images/data';
+import { View, StyleSheet, Text, StatusBar, ScrollView, TouchableOpacity, FlatList } from 'react-native';
+import { COLORS, Items } from '../../data/images/data';
+import Entypo from 'react-native-vector-icons/Entypo'
 
 const ProductInfo = ({ route, navigation }) => {
     const [product, setProduct] = useState({});
@@ -23,8 +24,44 @@ const ProductInfo = ({ route, navigation }) => {
 
     const { productID } = route.params
     return (
-        <View>
-            <Text>PRODUCT INFO {productID}</Text>
+        <View style={{
+            paddingTop: '7%',
+            width: '100%',
+            height: '100%',
+            backgroundColor: COLORS.white,
+            position: 'relative'
+        }}>
+            <StatusBar backgroundColor={COLORS.backgroundLight} barStyle='dark-content' />
+            <ScrollView>
+                <View style={{
+                    width: '100%',
+                    backgroundColor: COLORS.backgroundLight,
+                    borderBottomRightRadius: 20,
+                    borderBottomLeftRadius: 20,
+                    position: 'relative',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginBottom: 4
+                }}>
+                    <View style={{
+                        width: '100%',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        paddingTop: 16,
+                        paddingLeft: 16
+                    }}>
+                        <TouchableOpacity>
+                            <Entypo name='chevron-left' style={{
+                                fontSize: 18,
+                                color: COLORS.backgroundDark,
+                                padding: 12,
+                                backgroundColor: COLORS.white,
+                                borderRadius: 10
+                            }} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </ScrollView>
         </View>
     );
 }
