@@ -32,40 +32,39 @@ const ProductInfo = ({ route, navigation }) => {
 
     const { productID } = route.params
 
-    const addToCart = async (id) => {
-        let itemArray = await AsyncStorage.getItem('cartItems')
-        itemArray = JSON.parse(itemArray)
+    const addToCart = async id => {
+        let itemArray = await AsyncStorage.getItem('cartItems');
+        itemArray = JSON.parse(itemArray);
         if (itemArray) {
-            let array = itemArray
-            array.push[id]
+            let array = itemArray;
+            array.push(id);
 
             try {
-                await AsyncStorage.setItem('cartItems', JSON.stringify(array))
+                console.log(itemArray)
+                await AsyncStorage.setItem('cartItems', JSON.stringify(array));
                 ToastAndroid.show(
-                    'Item added successfully to cart',
-                    ToastAndroid.SHORT
-                )
-                navigation.navigate('Home')
+                    'Item Added Successfully to cart',
+                    ToastAndroid.SHORT,
+                );
+                navigation.navigate('Home');
             } catch (error) {
-                return error
+                return error;
             }
         } else {
-            let array = []
-            array.push(id)
+            let array = [];
+            array.push(id);
             try {
-                await AsyncStorage.setItem('cartItems', JSON.stringify(array))
+                await AsyncStorage.setItem('cartItems', JSON.stringify(array));
                 ToastAndroid.show(
-                    'Item added successfully to cart',
-                    ToastAndroid.SHORT
-
-                )
-                navigation.navigate('Home')
+                    'Item Added Successfully to cart',
+                    ToastAndroid.SHORT,
+                );
+                navigation.navigate('Home');
             } catch (error) {
-                return error
+                return error;
             }
         }
     }
-
 
     const renderProduct = ({ item, index }) => {
         return (
