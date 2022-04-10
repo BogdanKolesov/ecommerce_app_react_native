@@ -46,8 +46,19 @@ const MyCart = ({ navigation }) => {
         setTotal(total)
     }
 
-    const removeItemFromCart = (id) => {
-        console.log(id)
+    const removeItemFromCart = async id => {
+        let itemArray = await AsyncStorage.getItem('cartItems')
+        itemArray = JSON.parse(itemArray)
+        if (itemArray) {
+            let array = itemArray
+            for (let index = 0; index < array.length; index++) {
+                if (array[index] == id) {
+                    array.splice(index, 1)
+                }
+                await AsyncStorage.setItem('cartItems', JSON.stringify(array))
+                getDataFromDB()
+            }
+        }
     }
 
     const renderProducts = (data, index) => {

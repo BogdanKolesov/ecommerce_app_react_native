@@ -116,7 +116,7 @@ const ProductInfo = ({ route, navigation }) => {
                     }}>
                         <TouchableOpacity>
                             <Entypo name='chevron-left'
-                                onPress={() => { navigation.navigate('Home') }}
+                                onPress={() => { navigation.goBack('Home') }}
                                 style={{
                                     fontSize: 18,
                                     color: COLORS.backgroundDark,
