@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, StatusBar, Dimensions, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
+import { View, StyleSheet, Text, Animated, StatusBar, Dimensions, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
 import { COLORS, Items } from '../../data/images/data';
 import Entypo from 'react-native-vector-icons/Entypo'
 
@@ -23,6 +23,9 @@ const ProductInfo = ({ route, navigation }) => {
     }
 
     const width = Dimensions.get('window').width
+
+    const scrollX = new Animated.Value(0)
+    let position = Animated.divide(scrollX, width)
 
     const { productID } = route.params
 
@@ -89,6 +92,14 @@ const ProductInfo = ({ route, navigation }) => {
                         data={product.productImageList ? product.productImageList : null}
                         horizontal
                         renderItem={renderProduct}
+                        showsHorizontalScrollIndicator={false}
+                        decelerationRate={0.8}
+                        bounces={false}
+                        snapToInterval={width}
+                        onScroll={Animated.event(
+                            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+                            { useNativeDriver: false },
+                        )}
                         keyExtractor={item => item.index}
                     />
                 </View>
