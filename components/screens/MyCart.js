@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, TouchableOpacity, Text, Image } from 'react-native';
+import { View, StyleSheet, ScrollView, TouchableOpacity, Text, Image, ToastAndroid } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { COLORS, Items } from '../../data/images/data';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Entypo from 'react-native-vector-icons/Entypo'
+
 
 
 const MyCart = ({ navigation }) => {
@@ -35,6 +37,17 @@ const MyCart = ({ navigation }) => {
             getTotal(false);
         }
     };
+
+    const checkOut = async () => {
+        try {
+            await AsyncStorage.removeItem('cartItems')
+        } catch (error) {
+            return error
+        }
+        ToastAndroid.show('Products will be deliverd soon', ToastAndroid.SHORT)
+        navigation.navigate('Home')
+    }
+
 
 
     const getTotal = (productData) => {
@@ -226,15 +239,291 @@ const MyCart = ({ navigation }) => {
                     paddingLeft: 16,
                     paddingBottom: 10
                 }}>My Cart</Text>
-                <View style={{
-                    paddingHorizontal: 16,
-
-                }}>
-                    {
-                        product ? product.map(renderProducts) : null
-                    }
+                {
+                    total == 0
+                        ? (<View style={{
+                            paddingHorizontal: 20,
+                            width: '100%',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{
+                                fontSize: 25,
+                                fontWeight: 'bold',
+                            }}>Cart is empty</Text>
+                            <Entypo name='emoji-sad' style={{
+                                fontSize: 80,
+                                color: COLORS.backgroundDark,
+                                marginTop: 5,
+                                marginBottom: 3
+                            }}
+                            />
+                        </View>)
+                        : <View style={{
+                            paddingHorizontal: 16,
+                        }}>
+                            {
+                                product ? product.map(renderProducts) : null
+                            }
+                        </View>
+                }
+                <View>
+                    <View style={{
+                        paddingHorizontal: 16,
+                        marginVertical: 16
+                    }}>
+                        <Text style={{
+                            fontSize: 16,
+                            color: COLORS.black,
+                            fontWeight: '500',
+                            letterSpacing: 1,
+                            marginBottom: 20
+                        }}>
+                            Delivery location
+                        </Text>
+                        <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                        }}>
+                            <View style={{
+                                flexDirection: 'row',
+                                width: '80%',
+                                alignItems: 'center'
+                            }}>
+                                <View style={{
+                                    color: COLORS.blue,
+                                    backgroundColor: COLORS.backgroundLight,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: 12,
+                                    borderRadius: 10,
+                                    marginRight: 10
+                                }}>
+                                    <MaterialCommunityIcons
+                                        name='truck-delivery'
+                                        style={{
+                                            fontSize: 18,
+                                            color: COLORS.blue
+                                        }}
+                                    />
+                                </View>
+                                <View>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            color: COLORS.black,
+                                            fontWeight: '400',
+                                            lineHeight: 20
+                                        }}
+                                    >
+                                        Saint-Petersburg, Borovaya st 8
+                                    </Text>
+                                    <Text style={{
+                                        fontSize: 14,
+                                        color: COLORS.black,
+                                        fontWeight: '400',
+                                        lineHeight: 20,
+                                        opacity: 0.5
+                                    }}>
+                                        Free Russia
+                                    </Text>
+                                </View>
+                            </View>
+                            <MaterialCommunityIcons
+                                name='chevron-right'
+                                style={{
+                                    fontSize: 22,
+                                    color: COLORS.black
+                                }}
+                            />
+                        </View>
+                    </View>
+                </View>
+                <View>
+                    <View style={{
+                        paddingHorizontal: 16,
+                        marginVertical: 16
+                    }}>
+                        <Text style={{
+                            fontSize: 16,
+                            color: COLORS.black,
+                            fontWeight: '500',
+                            letterSpacing: 1,
+                            marginBottom: 20
+                        }}>
+                            Payment Method
+                        </Text>
+                        <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                        }}>
+                            <View style={{
+                                flexDirection: 'row',
+                                width: '80%',
+                                alignItems: 'center'
+                            }}>
+                                <View style={{
+                                    color: COLORS.blue,
+                                    backgroundColor: COLORS.backgroundLight,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    padding: 12,
+                                    borderRadius: 10,
+                                    marginRight: 10
+                                }}>
+                                    <Text style={{
+                                        fontSize: 10,
+                                        fontWeight: 'bold',
+                                        color: COLORS.blue,
+                                        letterSpacing: 1,
+                                        opacity: 0.5
+                                    }}>
+                                        MIR
+                                    </Text>
+                                </View>
+                                <View>
+                                    <Text
+                                        style={{
+                                            fontSize: 14,
+                                            color: COLORS.black,
+                                            fontWeight: '400',
+                                            lineHeight: 20
+                                        }}
+                                    >
+                                        MIR Free Russia
+                                    </Text>
+                                    <Text style={{
+                                        fontSize: 14,
+                                        color: COLORS.black,
+                                        fontWeight: '400',
+                                        lineHeight: 20,
+                                        opacity: 0.5
+                                    }}>
+                                        ****-****-****-****-1234
+                                    </Text>
+                                </View>
+                            </View>
+                            <MaterialCommunityIcons
+                                name='chevron-right'
+                                style={{
+                                    fontSize: 22,
+                                    color: COLORS.black
+                                }}
+                            />
+                        </View>
+                    </View>
+                    <View style={{
+                        paddingHorizontal: 16,
+                        marginTop: 40,
+                        marginBottom: 88,
+                    }}>
+                        <Text style={{
+                            fontSize: 16,
+                            color: COLORS.black,
+                            fontWeight: '500',
+                            letterSpacing: 1,
+                            marginBottom: 20
+                        }}>
+                            Order Info
+                        </Text>
+                        <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            marginBottom: 2
+                        }}>
+                            <Text style={{
+                                fontSize: 14,
+                                fontWeight: '400',
+                                maxWidth: '80%',
+                                color: COLORS.black,
+                                opacity: 0.5
+                            }}>Subtotal</Text>
+                            <Text style={{
+                                fontSize: 12,
+                                fontWeight: '400',
+                                color: COLORS.black,
+                                opacity: 0.8
+                            }}>
+                                &#8377; {total}
+                            </Text>
+                        </View>
+                        <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            marginBottom: 2
+                        }}>
+                            <Text style={{
+                                fontSize: 14,
+                                fontWeight: '400',
+                                maxWidth: '80%',
+                                color: COLORS.black,
+                                opacity: 0.5
+                            }}>Taxes</Text>
+                            <Text style={{
+                                fontSize: 12,
+                                fontWeight: '400',
+                                color: COLORS.black,
+                                opacity: 0.8,
+                            }}>
+                                &#8377; {total / 100 * 2}
+                            </Text>
+                        </View>
+                        <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between'
+                        }}>
+                            <Text style={{
+                                fontSize: 16,
+                                fontWeight: '400',
+                                maxWidth: '80%',
+                                color: COLORS.black,
+                                opacity: 0.5
+                            }}>Total</Text>
+                            <Text style={{
+                                fontSize: 18,
+                                fontWeight: '500',
+                                color: COLORS.black,
+                                opacity: 0.8
+                            }}>
+                                &#8377; {total + (total / 100 * 2)}
+                            </Text>
+                        </View>
+                    </View>
                 </View>
             </ScrollView>
+            <View style={{
+                position: 'relative',
+                bottom: 10,
+                height: '8%',
+                width: '100%',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                <TouchableOpacity onPress={total !== 0 ? checkOut : null}
+                    style={{
+                        width: '86%',
+                        height: '90%',
+                        backgroundColor: COLORS.blue,
+                        borderRadius: 20,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                    <Text style={{
+                        fontSize: 12,
+                        fontWeight: '500',
+                        letterSpacing: 1,
+                        color: COLORS.white,
+                        textTransform: 'uppercase'
+                    }}>
+                        Checkout &#8377;{total + (total / 100 * 2)}
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
