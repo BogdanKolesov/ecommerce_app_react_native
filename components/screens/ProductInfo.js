@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, Animated, StatusBar, Dimensions, ScrollView, Im
 import { COLORS, Items } from '../../data/images/data';
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 const ProductInfo = ({ route, navigation }) => {
@@ -30,6 +31,37 @@ const ProductInfo = ({ route, navigation }) => {
     let position = Animated.divide(scrollX, width)
 
     const { productID } = route.params
+
+    const addToCart = async (id) => {
+        let itemArray = AsyncStorage.getItem('cartItems')
+        itemArray = JSON.parse(itemArray)
+        if (itemArray) {
+            let array = itemArray
+            array.push[id]
+
+            try {
+                await AsyncStorage.setItem('cartItems', JSON.stringify(array))
+                ToastAndroid.show(
+                    'Item added successfully to cart'
+                )
+                navigation.navigate('Home')
+            } catch (error) {
+                return error
+            }
+        } else {
+            let array = []
+            array.push(id)
+            try {
+                await AsyncStorage.setItem('cartItems', JSON.stringify(array))
+                ToastAndroid.show(
+                    'Item added successfully to cart'
+                )
+                navigation.navigate('Home')
+            } catch (error) {
+                return error
+            }
+        }
+    }
 
 
     const renderProduct = ({ item, index }) => {
@@ -81,13 +113,15 @@ const ProductInfo = ({ route, navigation }) => {
                         paddingLeft: 16
                     }}>
                         <TouchableOpacity>
-                            <Entypo name='chevron-left' style={{
-                                fontSize: 18,
-                                color: COLORS.backgroundDark,
-                                padding: 12,
-                                backgroundColor: COLORS.white,
-                                borderRadius: 10
-                            }} />
+                            <Entypo name='chevron-left'
+                                onPress={() => { navigation.navigate('Home') }}
+                                style={{
+                                    fontSize: 18,
+                                    color: COLORS.backgroundDark,
+                                    padding: 12,
+                                    backgroundColor: COLORS.white,
+                                    borderRadius: 10
+                                }} />
                         </TouchableOpacity>
                     </View>
                     <FlatList
@@ -258,7 +292,7 @@ const ProductInfo = ({ route, navigation }) => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <TouchableOpacity onPress={() => product.isAvailable ? addToCart(roduct.id) : null}
+                <TouchableOpacity onPress={() => product.isAvailable ? addToCart(product.id) : null}
                     style={{
                         width: '86%',
                         height: '90%',
